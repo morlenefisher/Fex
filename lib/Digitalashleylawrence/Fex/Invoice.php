@@ -2,7 +2,7 @@
 
 namespace Digitalashleylawrence\Fex;
 
-use \PDO, \PDOStatement;
+use \PDO, \PDOStatement, \Digitalashleylawrence\Fex\Contact;
 
 class Invoice {
 
@@ -152,7 +152,7 @@ class Invoice {
   public function getBillCompany() {
 
     return $this->db_conn->query("select * from companies where cpn_id = $this->cpn_id")
-                         ->fetchAll(PDO::FETCH_CLASS);
+                         ->fetchAll(PDO::FETCH_CLASS, '\Digitalashleylawrence\Fex\Contact');
   }
 
   protected function mapTo() {
