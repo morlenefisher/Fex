@@ -1,6 +1,6 @@
 <?php
 
-namespace Digitalashleylawrence\Couponcloud;
+namespace Digitalashleylawrence\Fex;
 
 class Mail {
 
