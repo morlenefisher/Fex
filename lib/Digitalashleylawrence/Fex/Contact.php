@@ -100,6 +100,7 @@ class Contact {
   public function __construct() {
 
     $this->getConn();
+    $this->mapToFreeAgentApi();
     $this->people = $this->getContactPeople();
   }
 
