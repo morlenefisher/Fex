@@ -50,6 +50,43 @@ class Contact {
 
   public $uses_contact_invoice_sequence;
 
+  // from PHPAga
+  public $cpn_id;
+
+  public $cpn_name;
+
+  public $cpn_address;
+
+  public $cpn_city;
+
+  public $cpn_zip;
+
+  public $cpn_region;
+
+  public $ctr_id;
+
+  public $cpn_taxnr;
+
+  public $cpn_url;
+
+  public $cpn_phone;
+
+  public $cpn_fax;
+
+  public $cpn_email;
+
+  public $cpn_public;
+
+  public $cpn_logoname;
+
+  public $cpn_bill_footer;
+
+  public $cpn_owner_taxnr;
+
+  public $cpn_defaultpayterm;
+
+  public $cpn_address2;
+
   protected function getConn() {
 
     $this->db_conn = new PDO('mysql:host=localhost;port=3306;dbname=ashleylawrenceledgerphpaga', 'root', 'jungle',
@@ -87,6 +124,5 @@ class Contact {
     $this->country = $this->getCountryCode($this->ctr_id);
     $this->sales_tax_registration_number = $this->cpn_taxnr;
     $this->uses_contact_invoice_sequence = FALSE;
-
   }
 }
