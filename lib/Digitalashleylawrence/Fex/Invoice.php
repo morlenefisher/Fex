@@ -132,7 +132,7 @@ class Invoice {
   protected function getConn() {
 
     global $db_default;
-    new PDO('mysql:host=' . $db_default['host'] . ';port=3306;dbname=' . $db_default['dbname'],
+    $this->db_conn = new PDO('mysql:host=' . $db_default['host'] . ';port=3306;dbname=' . $db_default['dbname'],
       $db_default['username'], $db_default['password'],
       array(PDO::ATTR_PERSISTENT => FALSE));
   }
