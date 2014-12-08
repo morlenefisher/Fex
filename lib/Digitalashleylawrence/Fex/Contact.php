@@ -2,7 +2,7 @@
 
 namespace Digitalashleylawrence\Fex;
 
-use \PDO, \PDOStatement;
+use \PDO;
 
 class Contact {
 
@@ -87,10 +87,14 @@ class Contact {
 
   public $cpn_address2;
 
+  public $pe_id;
+
   protected function getConn() {
 
-    $this->db_conn = new PDO('mysql:host=localhost;port=3306;dbname=ashleylawrenceledgerphpaga', 'root', 'jungle',
-      array(PDO::ATTR_PERSISTENT => TRUE));
+    global $db_default;
+    new PDO('mysql:host=' . $db_default['host'] . ';port=3306;dbname=' . $db_default['dbname'],
+      $db_default['username'], $db_default['password'],
+      array(PDO::ATTR_PERSISTENT => FALSE));
   }
 
   public function __construct() {

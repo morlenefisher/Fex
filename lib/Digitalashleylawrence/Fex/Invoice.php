@@ -2,7 +2,7 @@
 
 namespace Digitalashleylawrence\Fex;
 
-use \PDO, \PDOStatement, \Digitalashleylawrence\Fex\Contact;
+use \PDO, \Digitalashleylawrence\Fex\Contact;
 
 class Invoice {
 
@@ -82,14 +82,14 @@ class Invoice {
 
   /**
    * ISO date string of invoice date
-   * @var sting
+   * @var string
    *    (Required)
    */
   public $dated_on;
 
   /**
    * ISO date string of invoice due date
-   * @var sting
+   * @var string
    *
    */
   public $due_on;
@@ -131,8 +131,10 @@ class Invoice {
    */
   protected function getConn() {
 
-    $this->db_conn = new PDO('mysql:host=localhost;port=3306;dbname=ashleylawrenceledgerphpaga', 'root', 'jungle',
-      array(PDO::ATTR_PERSISTENT => TRUE));
+    global $db_default;
+    new PDO('mysql:host=' . $db_default['host'] . ';port=3306;dbname=' . $db_default['dbname'],
+      $db_default['username'], $db_default['password'],
+      array(PDO::ATTR_PERSISTENT => FALSE));
   }
 
   public function __construct() {
