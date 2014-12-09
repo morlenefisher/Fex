@@ -106,7 +106,7 @@ class Contact {
 
   public function getContactPeople() {
 
-    return $this->db_conn->query("select * from persons where pe_id = $this->pe_id")
+    return $this->db_conn->query("select * from persons where pecat_id !=1 and  pe_id = $this->pe_id")
                          ->fetchAll(PDO::FETCH_CLASS);
   }
 
