@@ -130,4 +130,14 @@ class Contact {
     $this->sales_tax_registration_number = $this->cpn_taxnr;
     $this->uses_contact_invoice_sequence = FALSE;
   }
+
+  protected function getCountryCode($id) {
+
+    $c = array(
+      3 => 'GBR',
+      4 => 'USA,'
+    );
+
+    return $c[$id];
+  }
 }
